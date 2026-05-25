@@ -34,6 +34,7 @@
 - click-to-call आणि WhatsApp integration
 - inquiry/contact form validation
 - GitHub Pages साठी relative paths
+- वास्तविक औद्योगिक फोटोग्राफीवर आधारित premium UI
 
 ## GitHub Pages वर deploy कसे करावे
 
@@ -46,3 +47,7 @@
 ## फॉर्मबाबत नोंद
 
 या वेबसाइटमध्ये backend नाही. त्यामुळे संपर्क आणि चौकशी फॉर्म submit केल्यावर थेट WhatsApp message window उघडते.
+
+## प्रतिमा स्रोत
+
+वेबसाइटमध्ये वापरलेल्या वास्तविक औद्योगिक प्रतिमा Pexels वरील free-to-use फोटोंवर आधारित आहेत. Repo मध्ये local image files वापरल्यामुळे GitHub Pages वर relative paths कायम राहतात.

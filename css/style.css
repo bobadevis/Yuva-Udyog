@@ -28,8 +28,9 @@ body {
   font-family: "Noto Sans Devanagari", sans-serif;
   color: var(--color-white);
   background:
-    radial-gradient(circle at top right, rgba(242, 140, 40, 0.18), transparent 28%),
-    linear-gradient(180deg, #131313 0%, #0f0f0f 100%);
+    radial-gradient(circle at top right, rgba(242, 140, 40, 0.12), transparent 24%),
+    radial-gradient(circle at left center, rgba(246, 196, 71, 0.07), transparent 32%),
+    linear-gradient(180deg, #121212 0%, #0b0b0b 100%);
   line-height: 1.7;
 }
 
@@ -73,8 +74,9 @@ textarea {
 .topbar {
   background: linear-gradient(90deg, var(--color-orange), var(--color-yellow));
   color: var(--color-black);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 .topbar-inner {
@@ -93,8 +95,8 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(12px);
-  background: rgba(10, 10, 10, 0.82);
+  backdrop-filter: blur(16px);
+  background: rgba(8, 8, 8, 0.78);
   border-bottom: 1px solid transparent;
   transition: var(--transition);
 }
@@ -145,9 +147,10 @@ textarea {
 }
 
 .main-nav a {
-  color: #f0f0f0;
+  color: #f7f3e8;
   position: relative;
   font-weight: 600;
+  font-size: 0.98rem;
 }
 
 .main-nav a::after {
@@ -223,13 +226,53 @@ textarea {
 .page-banner {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.page-home .hero-section,
+.page-home .page-banner,
+.page-services .page-banner,
+.page-contact .page-banner {
+  background-image:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.86) 0%, rgba(8, 8, 8, 0.58) 42%, rgba(8, 8, 8, 0.84) 100%),
+    url("../images/hero-real.jpg");
+}
+
+.page-about .page-banner,
+.page-support .page-banner {
+  background-image:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.84) 0%, rgba(8, 8, 8, 0.54) 50%, rgba(8, 8, 8, 0.84) 100%),
+    url("../images/gallery-worksite.jpg");
+}
+
+.page-gallery .page-banner {
+  background-image:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.84) 0%, rgba(8, 8, 8, 0.52) 50%, rgba(8, 8, 8, 0.84) 100%),
+    url("../images/gallery-aerial.jpg");
+}
+
+.page-inquiry .page-banner {
+  background-image:
+    linear-gradient(90deg, rgba(8, 8, 8, 0.84) 0%, rgba(8, 8, 8, 0.54) 50%, rgba(8, 8, 8, 0.84) 100%),
+    url("../images/service-mining-real.jpg");
+}
+
+.hero-section::before,
+.page-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
   background:
-    linear-gradient(rgba(12, 12, 12, 0.72), rgba(12, 12, 12, 0.86)),
-    url("../images/hero-dumper.svg") center/cover no-repeat;
+    linear-gradient(180deg, rgba(246, 196, 71, 0.08), transparent 25%),
+    linear-gradient(0deg, rgba(15, 15, 15, 0.26), rgba(15, 15, 15, 0.26));
+  z-index: -1;
 }
 
 .hero-section {
-  min-height: 92vh;
+  min-height: 96vh;
   display: flex;
   align-items: center;
 }
@@ -252,9 +295,10 @@ textarea {
 }
 
 .hero-grid {
-  grid-template-columns: 1.2fr 0.8fr;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
   position: relative;
   z-index: 1;
+  padding: 5rem 0 6rem;
 }
 
 .hero-copy h1,
@@ -267,8 +311,9 @@ textarea {
 }
 
 .hero-copy h1 {
-  font-size: clamp(3.2rem, 8vw, 5.8rem);
-  max-width: 11ch;
+  font-size: clamp(3.6rem, 8vw, 6.3rem);
+  max-width: 10.5ch;
+  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.45);
 }
 
 .page-banner h1 {
@@ -279,7 +324,8 @@ textarea {
 .hero-copy p,
 .page-banner p {
   max-width: 56ch;
-  color: #e8e8e8;
+  color: #f1ede6;
+  font-size: 1.05rem;
 }
 
 .eyebrow {
@@ -308,8 +354,8 @@ textarea {
 .feature-card,
 .testimonial-card,
 .support-box {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.04));
-  border: 1px solid var(--color-border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
 }
@@ -319,6 +365,14 @@ textarea {
 .contact-form-card,
 .support-box {
   padding: 2rem;
+  backdrop-filter: blur(18px);
+}
+
+.hero-card h2 {
+  font-family: "Teko", sans-serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  margin: 0 0 0.8rem;
 }
 
 .check-list {
@@ -331,7 +385,7 @@ textarea {
 }
 
 .section {
-  padding: 5rem 0;
+  padding: 5.5rem 0;
 }
 
 .section-head {
@@ -370,17 +424,18 @@ textarea {
 
 .stats-grid {
   grid-template-columns: repeat(4, 1fr);
-  margin-top: -4rem;
+  margin-top: -5.2rem;
   position: relative;
   z-index: 2;
 }
 
 .stat-card {
-  padding: 1.8rem 1.2rem;
-  background: rgba(18, 18, 18, 0.96);
-  border: 1px solid rgba(246, 196, 71, 0.15);
+  padding: 2rem 1.2rem;
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.98), rgba(12, 12, 12, 0.98));
+  border: 1px solid rgba(246, 196, 71, 0.22);
   border-radius: var(--radius-md);
   text-align: center;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
 }
 
 .stat-card strong {
@@ -408,8 +463,8 @@ textarea {
 .gallery-item,
 .timeline-item,
 .faq-item {
-  background: #171717;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(180deg, #171717, #111111);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: var(--radius-md);
   overflow: hidden;
   transition: var(--transition);
@@ -432,13 +487,14 @@ textarea {
 .vehicle-card img,
 .rounded-media {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   object-fit: cover;
 }
 
 .service-card {
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .service-card h3,
@@ -452,11 +508,22 @@ textarea {
 .service-card h3 {
   margin-top: 1.1rem;
   margin-bottom: 0.5rem;
+  font-size: 1.35rem;
 }
 
 .service-card p {
   color: var(--color-muted);
   margin-top: 0;
+}
+
+.service-card::before,
+.gallery-item::before,
+.vehicle-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 34%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
 }
 
 .service-card .btn,
@@ -472,7 +539,8 @@ textarea {
 .dark-section {
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0)),
-    #111111;
+    linear-gradient(90deg, rgba(246, 196, 71, 0.04), transparent 22%),
+    #101010;
 }
 
 .accent-section {
@@ -497,6 +565,14 @@ textarea {
   padding: 1.6rem;
 }
 
+.feature-card h3,
+.info-card h3,
+.testimonial-card h3,
+.timeline-item h3 {
+  font-size: 1.35rem;
+  margin-top: 0;
+}
+
 .vehicle-showcase {
   grid-template-columns: repeat(3, 1fr);
 }
@@ -504,6 +580,7 @@ textarea {
 .vehicle-card {
   display: grid;
   grid-template-columns: 1fr;
+  position: relative;
 }
 
 .vehicle-card div {
@@ -530,6 +607,9 @@ textarea {
   justify-content: space-between;
   gap: 2rem;
   align-items: center;
+  background:
+    linear-gradient(135deg, rgba(246, 196, 71, 0.16), rgba(242, 140, 40, 0.08)),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.04));
 }
 
 .footer-grid {
@@ -627,6 +707,7 @@ textarea {
 .gallery-item figcaption {
   padding: 1rem 1.1rem 1.2rem;
   font-weight: 700;
+  font-size: 1.05rem;
 }
 
 .filter-bar {
@@ -716,8 +797,8 @@ textarea {
   width: 100%;
   padding: 0.95rem 1rem;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--color-white);
 }
 
@@ -780,6 +861,9 @@ textarea {
 
 .support-box {
   text-align: center;
+  background:
+    linear-gradient(135deg, rgba(246, 196, 71, 0.12), rgba(242, 140, 40, 0.04)),
+    #151515;
 }
 
 .whatsapp-float {
